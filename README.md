@@ -3,9 +3,9 @@
 
 In bamazonCustomer.js you are able to enter Customer Mode!
 
-In bamazonManager.js you are able to enter Manager Mode!
-
 You will be able to buy products currently in the Store.
+
+In bamazonManager.js you are able to enter Manager Mode!
 
 Manager Mode let's you do 4 actions:
 
