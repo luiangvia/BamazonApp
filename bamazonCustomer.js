@@ -15,14 +15,16 @@ var connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
-    console.log("The following are the items that are available in Bamazon!");
+    console.log("\nThe following are the items that are available in Bamazon!\n");
 });
 
 function displayAll() {
     connection.query("SELECT * FROM products", function (err, res) {
+        console.log("---------------------------------------------------------------------")
         for (var i = 0; i < res.length; i++) {
             console.log("Product ID: " + res[i].item_id + " | " + "Product Name: " + res[i].product_name + " | " + "Price: $" + res[i].price);
         }
+        console.log("---------------------------------------------------------------------\n\n")
         questions();
     });
 }
@@ -55,8 +57,8 @@ function questions() {
                 function (err, res) {
                     if (err) throw err;
                     if (res[0].stock_quantity < itemQuantity) {
-                        console.log("Insufficient quantity! Please select an amount that is less than or equal to " + res[0].stock_quantity);
-                        console.log("The following are the items that are available in Bamazon!");
+                        console.log("\nInsufficient quantity! Please select an amount that is less than or equal to " + res[0].stock_quantity+ "\n");
+                        console.log("\nThe following are the items that are available in Bamazon!\n");
                         displayAll();
                     } else {
                         connection.query("UPDATE products SET ? WHERE ?",
@@ -67,13 +69,13 @@ function questions() {
                             }],
                             function (err, result) {});
                         if (itemQuantity === '1') {
-                            console.log("Total: $" + (res[0].price * itemQuantity) + " for your purchase of " + itemQuantity + " " + res[0].product_name + "." );
+                            console.log("\nTotal: $" + (res[0].price * itemQuantity) + " for your purchase of " + itemQuantity + " " + res[0].product_name + ".\n" );
                         } else {
-                            console.log("Total: $" + (res[0].price * itemQuantity) + " for your purchase of " + itemQuantity + " " + res[0].product_name + ".");
+                            console.log("\nTotal: $" + (res[0].price * itemQuantity) + " for your purchase of " + itemQuantity + " " + res[0].product_name + ".\n");
                         }
-                        console.log("Inventory has been updated!");
-                        console.log("Continue shopping!");
-                        console.log("The following are the items that are available in Bamazon!");
+                        console.log("Inventory has been updated!\n");
+                        console.log("Continue shopping!\n");
+                        console.log("The following are the items that are available in Bamazon!\n");
                         displayAll();
 
                     }

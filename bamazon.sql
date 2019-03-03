@@ -17,7 +17,7 @@ VALUES
 (2830, "Pencil", "Office Supplies", 1 , 892),
 (2372, "I-Phone X", "Electronics", 999.99 , 812),
 (7420, "Gold Bracelet", "Jewelry", 500 , 340),
-(2820, "Cups", "Kitchen", 20 , 999),
+(2820, "Cup", "Kitchen", 20 , 999),
 (7423, "Dog Food", "Animals", 40 , 569),
 (2931, "Cat Necklace", "Animals", 10 , 199),
 (3480, "Soccer Ball", "Sports", 40 , 499),
